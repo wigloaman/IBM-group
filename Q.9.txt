@@ -1,0 +1,8 @@
+output
+array 1: length=5 last=n
+array 2: length=5 last=jones
+
+arr1 contains individual characters of the string "john" in reverse order: ['n', 'h', 'o', 'j'].
+arr2 is a reference to arr1 after the reverse operation, so it also contains ['n', 'h', 'o', 'j'].
+arr3 contains individual characters of the string "jones": ['j', 'o', 'n', 'e', 's'].
+arr3 is pushed as a single element to arr2, resulting in ['n', 'h', 'o', 'j', ['j', 'o', 'n', 'e', 's']].
