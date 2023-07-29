@@ -1,0 +1,42 @@
+// Asynchronous function that returns a Promise
+function fetchUserData() {
+  return new Promise((resolve, reject) => {
+    // Simulate fetching user data from an API
+    setTimeout(() => {
+      const userData = { name: "John Doe", age: 30 };
+      resolve(userData);
+    }, 1000);
+  });
+}
+
+// Asynchronous function that returns a Promise
+function fetchUserPosts(userId) {
+  return new Promise((resolve, reject) => {
+    // Simulate fetching user posts based on userId from an API
+    setTimeout(() => {
+      const userPosts = ["Post 1", "Post 2", "Post 3"];
+      resolve(userPosts);
+    }, 1500);
+  });
+}
+
+// Promise chaining example
+fetchUserData()
+  .then((userData) => {
+    console.log("User Data:", userData);
+    return fetchUserPosts(userData.id); // Assuming userData has an 'id' property
+  })
+  .then((userPosts) => {
+    console.log("User Posts:", userPosts);
+  })
+  .catch((error) => {
+    console.error("Error:", error);
+  });
+
+
+
+In this example, fetchUserData() is an asynchronous function that returns a Promise, simulating the fetching of user data from an API. We then chain a .then() callback to this Promise, which processes the user data and returns another Promise by calling fetchUserPosts().
+
+The second Promise, returned by fetchUserPosts(), fetches the user's posts based on the user ID obtained from the previous Promise. Finally, we chain another .then() callback to handle the user posts and log them to the console.
+
+The Promise chaining allows us to maintain a clean and sequential flow of asynchronous operations, making the code more organized and readable.
